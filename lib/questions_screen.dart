@@ -21,10 +21,9 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         children: [
           Text(currrentQuestion.text, style: TextStyle(color: Colors.white),),
           SizedBox(height: 30),
-          AnswerButton(answer: currrentQuestion.answers[0], onTap: () {}),
-          AnswerButton(answer: currrentQuestion.answers[1], onTap: () {}),
-          AnswerButton(answer: currrentQuestion.answers[2], onTap: () {}),
-          AnswerButton(answer: currrentQuestion.answers[3], onTap: () {}),
+          ...currrentQuestion.answers.map((answer) {
+            return AnswerButton(answer: answer, onTap: () {});
+          },),
         ],
       ),
     );
